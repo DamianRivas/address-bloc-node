@@ -22,12 +22,13 @@ describe("ContactController", () => {
   describe("#addContact()", () => {
     it("should add a single contact into the book", done => {
       this.book
-        .addContact("Alice", "001-101-1010")
+        .addContact("Alice", "001-101-1010", "hello@world.com")
         .then(contact => {
           // WHAT IS THIS???
           // console.log(contact);
           expect(contact.name).toBe("Alice");
           expect(contact.phone).toBe("001-101-1010");
+          expect(contact.email).toBe("hello@world.com");
           done();
         })
         .catch(err => {

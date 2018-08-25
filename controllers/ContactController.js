@@ -19,6 +19,14 @@ module.exports = class ContactController {
         validate(val) {
           return val !== "";
         }
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Contact's e-mail - ",
+        validate(val) {
+          return val !== "";
+        }
       }
     ];
     this.searchQuestions = [
@@ -48,9 +56,9 @@ module.exports = class ContactController {
     ];
   }
 
-  addContact(name, phone) {
+  addContact(name, phone, email) {
     // Sequelize methods (create in this case) return a promise
-    return Contact.create({ name, phone });
+    return Contact.create({ name, phone, email });
   }
 
   getContacts() {
